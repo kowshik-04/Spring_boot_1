@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Captcha Demo</title>
+</head>
+<body onload="loadCaptcha()">
+	<h3>Generated Captcha</h3>
+	<img id="captcha" alt="error" src="" />
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+	function loadCaptcha() {
+		var url = "http://localhost:8081/captcha/getcaptcha/6";
+		callApi("GET", url, "", getCaptcha);
+	}
+	function getCaptcha(res) {
+		captcha.src = "data:image/png;base64," + res;
+	}
+</script>
+</html>
